@@ -1,0 +1,19 @@
+{
+  "name": "personal-web",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "this is my personal web",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "alfan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "hbs": "^4.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
