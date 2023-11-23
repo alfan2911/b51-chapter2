@@ -1,11 +1,8 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alfan | Add Project</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <title>Alfan | Edit Project</title>
     <link
       rel="icon"
       type="image/x-icon"
@@ -23,7 +20,7 @@
       href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/universal.css" />
+    <link rel="stylesheet" href="/css/universal.css" />
   </head>
   <body>
     <!-- Nabvar -->
@@ -50,26 +47,20 @@
                 class="nav-link text-dark"
                 aria-current="page"
                 href="/"
-                >Home</a
-              >
+              >Home</a>
             </li>
             <li class="nav-item me-4">
-              <a class="nav-link text-dark active" href="/add-project"
-                >Add Project</a
-              >
+              <a class="nav-link text-dark" href="/add-project">Add Project</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" href="/testimonials"
-                >Testimonials</a
-              >
+              <a class="nav-link text-dark" href="/testimonial">Testimonials</a>
             </li>
           </ul>
           <a
             class="btn btn-dark hover-white"
             type="submit"
             href="/contact-me"
-            >Contact Me</a
-          >
+          >Contact Me</a>
         </div>
       </div>
     </nav>
@@ -77,13 +68,12 @@
     <!-- form Content -->
     <div class="bg-body-secondary overflow-hidden">
       <div class="container my-5">
-        <h1 class="text-center mb-5 fw-bold">ADD MY PROJECT</h1>
+        <h1 class="text-center mb-5 fw-bold">Update MY PROJECT</h1>
         <div class="d-flex justify-content-center">
-          <form class="w-75" method="post" action="/add-project">
+          <form class="w-75" method="POST" action="/update/{{id}}">
             <div class="mb-3">
-              <label for="project-name" class="form-label fw-bold h5"
-                >Project Name</label
-              >
+              <label for="project-name" class="form-label fw-bold h5">Project
+                Name</label>
               <input
                 type="text"
                 class="form-control"
@@ -91,13 +81,12 @@
                 aria-describedby="emailHelp"
                 style="height: 52px"
                 name="project_name"
+                value="{{data.project_name}}"
               />
             </div>
             <div class="d-flex gap-4">
               <div class="mb-3 w-50">
-                <label for="start-date" class="form-label fw-bold h5"
-                  >Start Date</label
-                >
+                <label for="start-date" class="form-label fw-bold h5">Start Date</label>
                 <input
                   type="date"
                   class="form-control"
@@ -105,12 +94,11 @@
                   aria-describedby="emailHelp"
                   style="height: 52px"
                   name="start_date"
+                  value="{{data.start_date}}"
                 />
               </div>
               <div class="mb-3 w-50">
-                <label for="end-date" class="form-label fw-bold h5"
-                  >End Date</label
-                >
+                <label for="end-date" class="form-label fw-bold h5">End Date</label>
                 <input
                   type="date"
                   class="form-control"
@@ -118,13 +106,16 @@
                   aria-describedby="emailHelp"
                   style="height: 52px"
                   name="end_date"
+                  value="{{data.end_date}}"
                 />
               </div>
             </div>
             <div class="mb-3">
-              <label for="description" class="form-label fw-bold h5"
-                >Description</label
-              >
+              <label
+                for="description"
+                class="form-label fw-bold h5"
+              >Description</label>
+
               <textarea
                 class="form-control"
                 id="description"
@@ -132,19 +123,53 @@
                 cols="50"
                 style="resize: none"
                 name="description"
-              ></textarea>
+              >{{data.description}}</textarea>
             </div>
             <div class="mb-3">
               <label class="form-label fw-bold h5">Technologies</label>
-              <div name="Technologies">
-                <div class="d-flex mb-3" style="gap: 72px">
+              <div>
+                <div class="d-flex mb-3" style="gap: 90px">
                   <div>
                     <input
                       class="form-check-input rounded me-2"
                       type="checkbox"
                       value="node_js"
                       name="node_js"
-                      id="flexCheckDefault"
+                      id="nodeJS"
+                      style="width: 25px; height: 25px"
+                    />
+                    <label
+                      class="form-check-label pt-1 h5 fw-bold"
+                      for="flexCheckDefault"
+                    >
+                      Javascript
+                    </label>
+                  </div>
+                  <div>
+                    <input
+                      class="form-check-input rounded me-2"
+                      type="checkbox"
+                      value="next_js"
+                      name="next_js"
+                      id="next_js"
+                      style="width: 25px; height: 25px"
+                    />
+                    <label
+                      class="form-check-label pt-1 h5 fw-bold"
+                      for="flexCheckDefault"
+                    >
+                      React Js
+                    </label>
+                  </div>
+                </div>
+                <div class="d-flex" style="gap: 90px">
+                  <div>
+                    <input
+                      class="form-check-input rounded me-2"
+                      type="checkbox"
+                      value="react_js"
+                      name="react_js"
+                      id="react_js"
                       style="width: 25px; height: 25px"
                     />
                     <label
@@ -158,62 +183,27 @@
                     <input
                       class="form-check-input rounded me-2"
                       type="checkbox"
-                      value="next_js"
-                      name="next_js"
-                      id="flexCheckDefault"
-                      style="width: 25px; height: 25px"
-                    />
-                    <label
-                      class="form-check-label pt-1 h5 fw-bold"
-                      for="flexCheckDefault"
-                    >
-                      Next Js
-                    </label>
-                  </div>
-                </div>
-                <div class="d-flex" style="gap: 90px">
-                  <div>
-                    <input
-                      class="form-check-input rounded me-2"
-                      type="checkbox"
-                      value="react_js"
-                      name="react_js"
-                      id="flexCheckDefault"
-                      style="width: 25px; height: 25px"
-                    />
-                    <label
-                      class="form-check-label pt-1 h5 fw-bold"
-                      for="flexCheckDefault"
-                    >
-                      React Js
-                    </label>
-                  </div>
-                  <div>
-                    <input
-                      class="form-check-input rounded me-2"
-                      type="checkbox"
                       value="typeScript"
                       name="typeScript"
-                      id="flexCheckDefault"
+                      id="typeScript"
                       style="width: 25px; height: 25px"
                     />
                     <label
                       class="form-check-label pt-1 h5 fw-bold"
                       for="flexCheckDefault"
                     >
-                      TypeScript
+                      Vue Js
                     </label>
                   </div>
                 </div>
               </div>
             </div>
             <div class="mb-3">
-              <label for="project-name" class="form-label fw-bold h5"
-                >Upload Image</label
-              >
+              <label for="project-name" class="form-label fw-bold h5">Upload
+                Image</label>
               <input
                 class="form-control form-control-lg"
-                id="upload"
+                id="formFileLg"
                 type="file"
               />
             </div>
@@ -230,37 +220,14 @@
         </div>
       </div>
     </div>
+
+    <div style="display:none">
+      {{#each data.logo_tech}}
+        <p class="{{@this}}">{{this}}</p>
+      {{/each}}
+    </div>
+
     <!-- end form content -->
-
-    <!-- Project-list dinamic-content -->
-    {{!-- <div class="bg-white overflow-hidden">
-      <div class="container">
-        <h1 class="text-center my-5 fw-bold">MY PROJECT</h1>
-        <div class=" row gap-4 d-flex justify-content-center" id="project-list">
-           <div class="card shadow border border-black" style="width: 18rem;">
-            <img src="https://img.freepik.com/free-photo/process-building-space-rocket-engine_181624-227.jpg?w=996&t=st=1700472143~exp=1700472743~hmac=1a98055c5219e6010d035ce51a2d129791456793281dec2f4d746d4b361b5343" class="card-img-top" alt="..." style="width: 90%; margin: 8px auto;">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p>Duration : 3 months</p>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <div class="d-flex gap-3 my-5">
-                <i class="fab fa-google-play fa-xl"></i>
-                <i class="fab fa-java fa-xl"></i>
-                <i class="fas fa-user-robot fa-xl"></i>
-              </div>
-              <div class="d-flex gap-5 justify-content-center" style=" margin-bottom: 0px;">
-                <a href="#" class="btn btn-primary d-flex justify-content-center align-items-center" style="width: 80px; height: 30px;">Edit</a>
-                <a href="#" class="btn btn-primary d-flex justify-content-center align-items-center" style="width: 80px; height: 30px;">Delete</a>
-              </div>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> --}}
-    <br>
-
-
 
     <!-- Script -->
     <script
@@ -273,7 +240,7 @@
       integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
       crossorigin="anonymous"
     ></script>
-    {{!-- <script src="/assets/js/project.js"></script> --}}
+    <script src="/js/edit.js"></script>
     <!-- End Script -->
   </body>
 </html>
