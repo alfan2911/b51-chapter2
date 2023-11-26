@@ -1,17 +1,11 @@
-import express from "express";
-import path from "path";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
-import homeRouter from "./src/router/homeRouter.js";
-import projectRouter from "./src/router/projectRouter.js";
-import contactMeRouter from "./src/router/contactMeRouter.js";
-import testimonialRouter from "./src/router/testimonialRouter.js";
-
-
+const express = require("express");
+const path = require("path");
+const HomeRouter = require("./src/router/HomeRouter.js");
+const ProjectRouter = require("./src/router/ProjectRouter.js");
+const ContactMeRouter = require("./src/router/ContactMeRouter.js");
+const TestimonialRouter = require("./src/router/TestimonialRouter.js");
 const app = express();
 const port = 5000;
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
 app.use(express.urlencoded({ extended: false }));
 
@@ -20,11 +14,11 @@ app.use(express.static("src/assets"));
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "src/views"));
 
-app.use(homeRouter);
-app.use(projectRouter);
-app.use(contactMeRouter);
-app.use(testimonialRouter);
+app.use(HomeRouter);
+app.use(ProjectRouter);
+app.use(ContactMeRouter);
+app.use(TestimonialRouter);
 
 app.listen(port, () => {
-  console.log("Server running on port 5000!");
-}); 
+  console.info(`Server Running on : http://localhost:${port}`);
+});

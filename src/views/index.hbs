@@ -141,12 +141,12 @@
             
             <a style="color: black; text-decoration: none;" href="/detail-project/{{@index}}">
             <div class="card-body">
-              <h5 class="card-title">{{this.project_name}}</h5>
+              <h5 class="card-title">{{this.projectName}}</h5>
               <p>{{this.duration}}</p>
               <p class="card-text">{{this.description}}</p>
               </a>
               <div class="d-flex gap-3 my-5">
-                {{#each this.logo_tech}}
+                {{#each this.technologies}}
                 <i class="{{this}}"></i>
                 {{/each}}
               </div>
