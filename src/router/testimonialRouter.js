@@ -3,6 +3,6 @@ const { Testimonial } = require("../controller/TestimonialController.js");
 
 const router = express.Router();
 
-router.get("/testimonial", Testimonial);
+router.get("/testimonials", Testimonial);
 
 module.exports = router;

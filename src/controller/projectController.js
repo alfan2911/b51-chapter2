@@ -41,7 +41,7 @@ const AddNewProject = async (req, res) => {
       logo_tech: dataFiltered,
     };
 
-    let query = `INSERT INTO "Projects"(img, "projectName", "startDate", "endDate", duration, description, technologies)
+    let query = `INSERT INTO "projects"(img, "projectName", "startDate", "endDate", duration, description, technologies)
     VALUES ('${data.img}', '${data.project_name}', '${data.start_date}', '${data.end_date}' , '${data.duration}', '${data.description}', '{${dataFiltered}}')`;
     let inserted = await sequelize.query(query);
 

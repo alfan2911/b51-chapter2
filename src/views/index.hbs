@@ -139,7 +139,7 @@
       <div class="card shadow border border-black" style="width: 18rem;">
             <img src="{{this.img}}" class="card-img-top" alt="..." style="width: 90%; margin: 8px auto;">
             
-            <a style="color: black; text-decoration: none;" href="/detail-project/{{@index}}">
+            <a style="color: black; text-decoration: none;" href="/detail-project/{{this.id}}">
             <div class="card-body">
               <h5 class="card-title">{{this.projectName}}</h5>
               <p>{{this.duration}}</p>
@@ -152,8 +152,8 @@
               </div>
               
               <div class="d-flex gap-5 justify-content-center" style=" margin-bottom: 0px;">
-                <a href="/update/{{@index}}" class="btn btn-dark d-flex justify-content-center align-items-center" style="width: 80px; height: 30px;">Edit</a>
-                <a href="/delete-project/{{@index}}" class="btn btn-dark d-flex justify-content-center align-items-center" style="width: 80px; height: 30px;">Delete</a>
+                <a href="/update/{{this.id}}" class="btn btn-dark d-flex justify-content-center align-items-center" style="width: 80px; height: 30px;">Edit</a>
+                <a href="/delete-project/{{this.id}}" class="btn btn-dark d-flex justify-content-center align-items-center" style="width: 80px; height: 30px;">Delete</a>
               </div>
 
               </div>
