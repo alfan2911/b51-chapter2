@@ -2,7 +2,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alfan | Detail Project</title>
+    <title>Alfan | Home</title>
     <link
       rel="icon"
       type="image/x-icon"
@@ -31,7 +31,7 @@
     <nav class="navbar navbar-expand-lg bg-nav-color py-3 sticky-top">
       <div class="container">
         <a class="navbar-brand me-4" href="/">
-          <img src="/icon/ca.png" style="width: 20%; alt="logo" />
+          <img src="/img/logo.png" alt="logo" />
         </a>
         <button
           class="navbar-toggler"
@@ -53,13 +53,34 @@
                 href="/"
               >Home</a>
             </li>
-            <li class="nav-item me-4">
-              <a class="nav-link text-dark" href="/add-project">Add Project</a>
-            </li>
+            {{#if isLogin}}
+              <li class="nav-item me-4">
+                <a class="nav-link text-dark" href="/add-project">Add Project</a>
+              </li>
+            {{/if}}
             <li class="nav-item">
               <a class="nav-link text-dark" href="/testimonial">Testimonials</a>
             </li>
           </ul>
+          {{#if isLogin}}
+            <ul class="navbar-nav me-4 mb-2 mb-lg-0 h5 gap-3">
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="/register">{{user}}</a>
+              </li>
+              <li>
+                <a class="nav-link text-dark" href="/logout">Logout</a>
+              </li>
+            </ul>
+          {{else}}
+            <ul class="navbar-nav me-4 mb-2 mb-lg-0 h5 gap-3">
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="/register">Register</a>
+              </li>
+              <li>
+                <a class="nav-link text-dark" href="/login">Login</a>
+              </li>
+            </ul>
+          {{/if}}
           <a
             class="btn btn-dark hover-white"
             type="submit"
@@ -90,27 +111,13 @@
                 Technologies
               </h4>
               <div class="d-flex grid column-gap-5 w-50 flex-wrap">
-              {{#each data.technologies}}
+                {{#each data.technologies}}
                   <div class="d-flex gap-3 align-items-center">
-                    <i class=""></i>
+                    <i class="{{this}}"></i>
                     {{! <p class="h5 pt-3">Node Js</p> }}
                   </div>
-                  {{/each}}
 
-             
-
-                {{! <div class="d-flex gap-3 align-items-center">
-                  <i class="fad fa-calendar-alt fa-xl"> </i>
-                  <p class="h5 pt-3">React Js</p>
-                </div>
-                <div class="d-flex gap-3 align-items-center">
-                  <i class="fad fa-calendar-alt fa-xl"> </i>
-                  <p class="h5 pt-3">Next Js</p>
-                </div>
-                <div class="d-flex gap-3 align-items-center">
-                  <i class="fad fa-calendar-alt fa-xl"> </i>
-                  <p class="h5 pt-3">Type Script</p>
-                </div> }}
+                {{/each}}
 
               </div>
             </div>
@@ -130,9 +137,9 @@
 
     </div> }}
 
-    {{!-- <script src="/js/detail.js">
+    <script src="/js/detail.js">
 
-    </script> --}}
+    </script>
 
     <!-- Script -->
     <script

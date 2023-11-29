@@ -20,14 +20,14 @@
       href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/universal.css" />
+    <link rel="stylesheet" href="/css/universal.css" />
   </head>
   <body>
     <!-- Nabvar -->
     <nav class="navbar navbar-expand-lg bg-nav-color py-3 sticky-top">
       <div class="container">
         <a class="navbar-brand me-4" href="/">
-          <img src="/icon/ca.png" style="width: 20%;" alt="logo" />
+          <img src="/img/logo.png" alt="logo" />
         </a>
         <button
           class="navbar-toggler"
@@ -53,9 +53,28 @@
               <a class="nav-link text-dark" href="/add-project">Add Project</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" href="/testimonials">Testimonials</a>
+              <a class="nav-link text-dark" href="/testimonial">Testimonials</a>
             </li>
           </ul>
+          {{#if isLogin}}
+            <ul class="navbar-nav me-4 mb-2 mb-lg-0 h5 gap-3">
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="/register">{{user}}</a>
+              </li>
+              <li>
+                <a class="nav-link text-dark" href="/logout">Logout</a>
+              </li>
+            </ul>
+          {{else}}
+            <ul class="navbar-nav me-4 mb-2 mb-lg-0 h5 gap-3">
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="/register">Register</a>
+              </li>
+              <li>
+                <a class="nav-link text-dark" href="/login">Login</a>
+              </li>
+            </ul>
+          {{/if}}
           <a
             class="btn btn-dark hover-white"
             type="submit"
@@ -106,7 +125,7 @@
                   aria-describedby="emailHelp"
                   style="height: 52px"
                   name="end_date"
-                  value="{{data.newDateEnd}}"
+                  value="{{data.newDateENd}}"
                 />
               </div>
             </div>
@@ -142,7 +161,7 @@
                       class="form-check-label pt-1 h5 fw-bold"
                       for="flexCheckDefault"
                     >
-                      Javascript
+                      Node Js
                     </label>
                   </div>
                   <div>
@@ -158,7 +177,7 @@
                       class="form-check-label pt-1 h5 fw-bold"
                       for="flexCheckDefault"
                     >
-                      React Js
+                      Next Js
                     </label>
                   </div>
                 </div>
@@ -176,7 +195,7 @@
                       class="form-check-label pt-1 h5 fw-bold"
                       for="flexCheckDefault"
                     >
-                      Node Js
+                      React Js
                     </label>
                   </div>
                   <div>
@@ -192,7 +211,7 @@
                       class="form-check-label pt-1 h5 fw-bold"
                       for="flexCheckDefault"
                     >
-                      Vue Js
+                      TypeScript
                     </label>
                   </div>
                 </div>
