@@ -31,7 +31,7 @@
     <nav class="navbar navbar-expand-lg bg-nav-color py-3 sticky-top">
       <div class="container">
         <a class="navbar-brand me-4" href="/">
-          <img src="/img/logo.png" alt="logo" />
+           <img src="/img/ca.png" style="width: 20%;" alt="logo" />
         </a>
         <button
           class="navbar-toggler"
@@ -79,12 +79,17 @@
       </div>
     </nav>
     <!-- End Navbar -->
+    {{#if messages.danger}}
+      <div class="alert alert-danger" role="alert">
+        {{messages.danger}}
+      </div>
+    {{/if}}
     <!-- From Login -->
     <div class="overflow-hidden">
       <div class="container my-5">
         <h1 class="text-center mb-5 fw-bold">Log in to App</h1>
         <div class="d-flex justify-content-center">
-          <form class="w-50" method="POST" action="/login">
+          <form class="w-50 w-full" method="POST" action="/login">
             <div class="mb-3">
               <label for="email" class="form-label fw-bold h5">Email</label>
               <input
@@ -94,6 +99,7 @@
                 aria-describedby="emailHelp"
                 style="height: 52px;"
                 name="email"
+                required
               />
             </div>
             <div class="mt-5 mb-4 relative_password">
@@ -107,6 +113,7 @@
                 id="password"
                 style="height: 52px;"
                 name="password"
+                required
               />
           
             </div>
@@ -123,6 +130,18 @@
       </div>
     </div>
     <!-- End From Login -->
+    <!--script -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
     <script src="js/login.js"></script>
+    <!--ENNN script -->
   </body>
 </html>

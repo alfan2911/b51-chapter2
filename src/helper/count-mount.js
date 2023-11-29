@@ -6,7 +6,7 @@ function countMounth(start_date, end_date) {
   let month = day / 29;
   let eMonth = Math.floor(month);
   let eDay = day % 29;
-  return `${eDay} Day, ${eMonth} Month`;
+  return `${eMonth} Month, ${eDay} Day `;
 }
 
 module.exports = { countMounth };

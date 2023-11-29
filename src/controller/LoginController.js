@@ -2,6 +2,7 @@ const config = require("../database_config/config/config.json");
 const { Sequelize, QueryTypes } = require("sequelize");
 const sequelize = new Sequelize(config.development);
 const bcrypt = require("bcrypt");
+const flash = require("express-flash");
 
 const FormLogin = (req, res) => {
   let sessionTest = {
@@ -28,17 +29,19 @@ const LoginUser = async (req, res) => {
     let dataLogin = await sequelize.query(query, { type: QueryTypes.SELECT });
     if (!dataLogin.length) {
       req.flash("danger", "user are not regestered");
-      return;
+      return res.redirect("/login");
     }
     await bcrypt.compare(password, dataLogin[0].password, (err, result) => {
       switch (result) {
         case true:
-          (req.session.isLogin = true), (req.session.user = dataLogin[0].name);
+          req.session.isLogin = true;
+          req.session.user = dataLogin[0].name;
+          req.session.userId = dataLogin[0].id;
           req.flash("success", " login success");
-          req.flash("danger", "password wrong");
+          // req.flash("danger", "password wrong");
           return res.redirect("/");
         case false:
-          req.flash("danger", "password wrong");
+          req.flash("danger", "wrong password");
           return res.redirect("/login");
       }
     });
